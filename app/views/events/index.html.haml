@@ -7,7 +7,7 @@
     = paginate @events, :previous_label => "", :next_label => ""
     %ul#instances
       - @events.each_with_index do |event, index|
-        %li{:class => ("selected" if index == 0)}= link_to event.event_time.to_s(:whoops_default), event
+        %li{:class => ("selected" if index == 0)}= link_to event.event_time.to_s(:whoops_default), whoops.event_path(event)
   .space
     %h3.info-revealer
       Search
