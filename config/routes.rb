@@ -1,4 +1,4 @@
-Whoops::Engine.routes.draw do
+Rails.application.routes.draw do
   resources :event_groups, :as => "event_groups" do
     resources :events
   end
