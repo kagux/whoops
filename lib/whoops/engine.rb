@@ -15,13 +15,13 @@ module Whoops
         end
 
         resources :events, :as => "whoops_events"
-        root :to => "event_groups#index"
+        match '/', :to => "event_groups#index", :as => "whoops_root"
       end
     end
 
     def self.draw_new_event_route(map)
       map.instance_exec do
-        match 'events', :via => [:post], :to => 'events#create'
+        match 'events', :via => [:post], :to => 'events#create', :as=>"whoops_new_event"
       end
     end
   end
