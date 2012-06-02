@@ -1,5 +1,5 @@
 - content_for :breadcrumbs do
-  = breadcrumbs(["Event Details", whoops.event_group_path(@event_group)])
+  = breadcrumbs(["Event Details", whoops_event_group_path(@event_group)])
   
 - content_for :sidebar do
   .space
@@ -7,7 +7,7 @@
     = paginate @events, :previous_label => "", :next_label => ""
     %ul#instances
       - @events.each_with_index do |event, index|
-        %li{:class => ("selected" if index == 0)}= link_to event.event_time.to_s(:whoops_default), whoops.event_path(event)
+        %li{:class => ("selected" if index == 0)}= link_to event.event_time.to_s(:whoops_default), whoops_event_path(event)
   .space
     %h3.info-revealer
       Search

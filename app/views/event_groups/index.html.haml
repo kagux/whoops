@@ -1,7 +1,7 @@
 - content_for :sidebar do
   .space
     %h3 Filters
-    = form_for event_group_filter, :url => whoops.event_groups_path, :html => {:method => "get"} do |f|
+    = form_for event_group_filter, :url => whoops_event_groups_path, :html => {:method => "get"} do |f|
       = hidden_field_tag 'updating_filters', true
       - filter_options.each do |field_name, options|
         %h4= field_name
@@ -13,7 +13,7 @@
                 = option
   .space
     %h3 Keyword Search
-    = form_tag whoops.event_groups_path, :method => "get" do |f|
+    = form_tag whoops_event_groups_path, :method => "get" do |f|
       %ul.search.unstyled
         %li= text_field_tag :query
         %li= submit_tag "Submit", :class => "btn primary"
