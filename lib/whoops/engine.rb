@@ -18,6 +18,12 @@ module Whoops
         root :to => "event_groups#index"
       end
     end
+
+    def self.draw_new_event_route(map)
+      map.instance_exec do
+        match 'events', :via => [:post], :to => 'events#create'
+      end
+    end
   end
 
 
