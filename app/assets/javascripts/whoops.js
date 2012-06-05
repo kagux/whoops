@@ -1,6 +1,3 @@
-//= require jquery
-//= require jquery_ujs
-
 Whoops = {
   setupFilters: function() {
     $("#new_whoops_filter input").change(function(){
