@@ -4,13 +4,13 @@ class EventsController < ApplicationController
   def index
     @event_group = Whoops::EventGroup.find(params[:whoops_event_group_id])
     
-    events_base = @event_group.events.sort(_id: -1)
+    events_base = @event_group.events
     unless params[:query].blank?
       conditions = Whoops::MongoidSearchParser.new(params[:query]).conditions
       events_base = events_base.where(conditions)
     end
     
-    @events = events_base.desc(:event_time).page(params[:page]).per(20)
+    @events = events_base.desc(:event_time, :_id).page(params[:page]).per(20)
   end
   
   def show
