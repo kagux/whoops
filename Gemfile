@@ -1,6 +1,8 @@
 source "http://rubygems.org"
 gemspec
 
+gem "jquery-ui-rails"
+
 platform :ruby do
   gem 'bson_ext'
 end
